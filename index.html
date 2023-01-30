@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="css/icon.css" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+     <script type="text/javascript"  src="js/bin/materialize.js"></script>
+     <script type="text/javascript" src="js/app/registra.js"></script>
+     <script type="text/javascript" src="js/app/jquery-1.3.2.min.js"></script>
+   
+   <!--  <script type="text/javascript" src="js/app/jquery.qrcode.js"></script>
+     <script type="text/javascript" src="js/app/qrcode.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>   
+     <script type="text/javascript" src="js/index.js"></script>-->
+        
+      
+    </head>
+    
+ <style type="text/css">
+ body{
+    
+    background: url(imagenes/fondo1.png);
+    background-size: cover;
+    
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+}
+.tarjeta_vecinal{
+        background-image: url('imagenes/tarjeta_vecinal.png'); 
+        background-size: cover;
+        
+
+    }
+    .texto-tarjeta{
+        font-size: 15px;
+        color: #fff;
+        font-style: arial;
+        
+         text-align: center;
+    }
+ </style>
+  <body>
+      <div id="principal" aling="center">
+        
+  
+    </div>
+    
+    
+    
+      
+    </body>
+  </html>
+  
+  <script type="text/javascript">
+  loguin()
+ //menu();
+//comercios();
+function comercios(){
+
+  var nom_comercios = ["Farmanor Red de Farmacias","Supermercados Mayor","Papelar Libreria"];
+  var imagenes_comercios = ["LOGO-FARMANOR-02-1.png","mayor.png","papelar.png"];
+  var comercios = "";
+  for (var i=0;i<3;i++) {
+     comercios +=' <li class="collection-item avatar"><img src="imagenes/'+imagenes_comercios[i]+'" alt="" class="circle"><span class="title" onclick="sucursales('+i+')">'+nom_comercios[i]+'</span><p></p><a href="#!" class="secondary-content"><i class="material-icons" onclick="sucursales('+i+')">send</i></a></li>';
+  };
+  
+  $('#test-swipe-1').html('<ul class="collection">'+comercios+'</ul>');
+}
+   
+ 
+
+
+ 
+
+function log(){
+  
+  
+  //$('#test-swipe-2').html('');
+ // $('#principal').html('<img src="imagenes/loading.gif" width="15%" align="center">');
+  menu();
+  comercios();
+ // M.AutoInit();
+
+
+ // var datos='<div class="card-panel  #fb8c00 orange darken-1  white-text center"><div class="row"><div class="col grid-example s12 "><p class="flow-text center">S:20274506157</p></div><div class="col s12 m4 l8"><p  class="flow-text center">BONANNO FERNANNDO</p></div><div class="col s12 m4 l2"><p class="flow-text center">DNI:27450615</p></div><div class="col s12 m4 l2"><p class="flow-text center">Domicilio:Carmen de Barrionuvo 763</p></div></div></div><div class="row"><div class="col s12 m4 12 center"><p class="flow-text center"></p></div><div class="col s12 m4 l8 center"><p class="flow-text center" ></p></div><div class="col s12 m4 12 center"><p class="flow-text center"><div class="row"><a class="btn-floating btn-large waves-effect waves-light blue" onclick="scanear()" ><i class="material-icons">center_focus_weak</i></a></div></p></div></div>';
+  //var datos='<div class="row"><a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">center_focus_weak</i></a></div>';
+ // var datos='<div class="container"><div class="card"><div class="card-image"><img src="imagenes/tarjeta_1.png"><br><p class="card-title ">Fernando Bonanno</p></div></div></div><div class="row center"><a class="btn-floating btn-large waves-effect waves-light blue" onclick="scanear()" ><i class="material-icons">center_focus_weak</i></a></div><div class="row center"id="resp"></div>';
+  var datos=' <div class="tarjeta_vecinal" onclick="scanear()"><br><br><br><br><br><br><br><br><br><br><br><br><br><span class="texto-tarjeta"><br><br></br></span> <br><br><br><br><br><br><br><br><br><br><br><br><br></div>';    
+ 
+ var utiles = '<table class="centered striped"><tr><td class="center">Inclision juvenil</td><td class="center">Inclusion Social</td></tr><tr><td class="center"><a class="btn-floating btn-large waves-effect waves-light blue " onclick="llamar(102)"><i class="material-icons">local_phone</i></a></td><td class="center"><a class="btn-floating btn-large waves-effect waves-light blue " onclick="llamar(102)"><i class="material-icons">local_phone</i></a></td></tr><tr><td class="center">Desarrollo Territorial</td><td class="center">Niñez y Adolecencia</td></tr><tr><td class="center"><a class="btn-floating btn-large waves-effect waves-light blue" onclick="llamar(102)"><i class="material-icons">local_phone</i></a></td><td class="center"><a class="btn-floating btn-large waves-effect waves-light blue" onclick="llamar(102)"><i class="material-icons">local_phone</i></a></td></tr><tr><td class="center">Grooming</td><td class="center">Emergencia</td></tr><tr><td class="center"><a class="btn-floating btn-large waves-effect waves-light blue" onclick="llamar(102)"><i class="material-icons">directions_run</i></a></td><td class="center"><a class="btn-floating btn-large waves-effect waves-light blue" onclick="llamar(911)"><i class="material-icons">local_hospital</i></a></td></tr></table>';
+
+
+  $('#test-swipe-2').html(datos);
+   $('#qr').html(utiles);
+ // $("#test-swipe-3").barcode("20274506157","std25");
+//$("#test-swipe-2").barcode("20274506157","std25");
+//$("body").css("background-image": "url(imagenes/fondoo.png )");
+
+/*/
+jQuery('#qr').qrcode({
+    
+    text  : "fernando bonanno - dni:27450615 - habilitado "
+    
+  });
+        
+/*/
+}
+ 
+
+ function menu(){
+  var menu='<ul id="tabs-swipe-demo" class="tabs" ><li class="tab col s3"><a href="#test-swipe-1" onclick="comercios()"><img src="imagenes/comercio.png" width="30%" align="center"></a></li><li class="tab col s3"><a class="active" href="#test-swipe-2"><img src="imagenes/tarjeta-de-credito.png" width="30%" align="center"></a></li><li class="tab col s3"><a href="#test-swipe-3"><img src="imagenes/utiles.png" width="30%" align="center"></a></li></ul><div id="test-swipe-1" class="col s12"></div>  <div id="test-swipe-2" class="col s12" style="height: 550px;"></div><div id="test-swipe-3" class="col s12 large"><div id="qr" class="container"></div>';
+  $('#principal').html(menu);
+  M.AutoInit();
+ }
+
+
+ function gif(){
+  $('body').css('background', 'url(imagenes/fondoo.png)'); 
+  var gif='<div class="row"><div class="col s12"><p></p></div><div class="col s12 m4 l2"><p></p></div><div class="col s12 m4 l8"><p></p></div><div class="col s12 m4 l8"><p></p></div><div class="col s12 m4 l8"><p></p></div>  <div class="col s12 m4 l8"><p></p></div><div class="col s12 m4 l8"><p></p></div><div class="col s12 m4 l8"><p></p></div><div class="col s12 m4 l8"><p></p></div><div class="col s12 m4 l2 center"><img src="imagenes/loading.gif" width="15%" align="center"></div></div>';
+ 
+  $('#principal').html(gif);
+  setTimeout(log, 3200);
+ }
+
+
+ function sucursales(num){
+  var suc_farmanor=["FARMANOR I","FARMANOR II","FARMANOR III","FARMANOR IV","FARMANOR V","FARMANOR VI","FARMANOR VII","FARMANOR VIII"];
+  var dir_farmanor=["Olta 16","Benavidez y Chibchas","Baltazar y Jaramillo 95"," Ortiz de Ocampo 1675","Lamadrid 313","Av. San Francisco y R. Fournier","Chilecito, Shopping Vieja Estación","Pelagio B Luna y Santiago del Estero"]
+  var tel_farmanor=["380-4461438","380-4437434","380-4425234"," 380-446303","380-4468631","380-4846188","3825-422259","380-4466862"];
+  var suc_mayor=["Supermercado Mayor","Supermercado Mayor complejo","Supermercado Mayor","Supermercado Mayor","Supermercado Mayor","Supermercado Mayor","Supermercado Mayor","Supermercado Mayor"];
+
+  var dir_mayor=["Moreau de Justo 833","La Rioja","Buenos Aires 99-199","8 de Diciembre 613","La Rioja","Av. San Francisco 3500","La Rioja","La Rioja"]; 
+  var tel_mayor=["03804469688","03804439892","03804452210","-","-","-","-","-"];
+   
+
+
+var suc=""
+
+switch (num){
+
+  case 0:
+         for (var i = 0; i < suc_farmanor.length; i++) {
+  suc +=' <li class="collection-item avatar"><img src="imagenes/LOGO-FARMANOR-02-1.png" alt="" class="circle"><span class="title">'+suc_farmanor[i]+'</span><p>Direccion:'+dir_farmanor[i]+'<br>Tel:'+tel_farmanor[i]+'</p><a href="#!" class="secondary-content"><i class="material-icons">location_on</i><i class="material-icons">call</i></a></li>';
+};
+ break;
+  case 1:
+        for (var i = 0; i < suc_mayor.length; i++) {
+  suc +=' <li class="collection-item avatar"><img src="imagenes/mayor.png" alt="" class="circle"><span class="title">'+suc_mayor[i]+'</span><p>Direccion:'+dir_mayor[i]+'<br>Tel:'+tel_mayor[i]+'</p><a href="#!" class="secondary-content"><i class="material-icons">location_on</i><i class="material-icons">call</i></a></li>';
+};
+  break;
+  case 2:
+       
+  suc +=' <li class="collection-item avatar"><img src="imagenes/papelar.png" alt="" class="circle"><span class="title">Papelar - Libreria</span><p>Direccion:P B Luna 321 <br>Tel: (03822) 42-5554574</p><a href="#!" class="secondary-content"><i class="material-icons">location_on</i><i class="material-icons">call</i></a></li>';
+
+  break;
+}
+
+ $('#test-swipe-1').html('<ul class="collection">'+suc+'</ul>');
+ }
+ ////pilarbonanno201@gmail.com
+//var qr_com
+
+  function scanear(){ 
+  
+    cordova.plugins.barcodeScanner.scan( 
+        function (result) {   
+            var codigoQR=result.text;
+            //verify();
+           // qr_com = codigoQR;
+            
+           alert('Habilitado en :'+codigoQR);
+           
+            
+        }, 
+        function (error) { 
+            notificacion("Ha ocurrido un error al escanear."); 
+        } 
+    ); 
+};
+
+
+function Registrar(){
+
+   var registro ='<div class="card-panel  transparent   center"><div class="row"><form class="col s12 m2"><div class="row"><div class="input-field col s12"> </div></div><div class="row"><div class="input-field col s12"><h4 class="text center white-text text-darken-2"></h4></div></div><div class="row"><div class="input-field col s6 "><input  id="nom" name="nom" type="text" class="validate"><label for="first_name" class="white-text text-darken-2">Nombre</label></div><div class="input-field col s6"><input id="ape" type="text" class="validate"> <label for="last_name" class="white-text text-darken-2">Apellido</label></div></div><div class="input-field col s6 "><input  id="user" name="nom" type="text" class="validate"><label for="first_name" class="white-text text-darken-2">Usuario</label></div><div class="input-field col s6"><input id="pass" type="text" class="validate"> <label for="last_name" class="white-text text-darken-2">Clave</label></div></div><div class="row"><div class="input-field col s6 "><input  id="dni" type="text" class="validate"><label for="first_name" class="white-text text-darken-2">Dni</label></div><div class="input-field col s6"><input id="barrio" type="text" class="validate"><label for="last_name" class="white-text text-darken-2">Telefono</label></div></div><div class="input-field col s12 "><input  id="mail" type="text" class="validate"><label for="first_name" class="white-text text-darken-2">Correo electronico</label></div><div class="row"><div class="input-field col s12" ><a class="waves-effect waves-light btn blue" onclick="send_registrar()">Enviar</a></div> </div>  </form>  </div>   </div>   </div>';
+     
+     $('#principal').html(registro);
+}
+
+function llamar(numero){
+    window.location.href = 'tel:'+numero+'';
+}
+
+function verify(){
+
+    
+    $('#resp').html('<img src="imagenes/loading.gif" width="15%" align="center">')
+    setTimeout(habilitado, 3200);
+}
+
+function habilitado(){
+
+    $('#resp').html('<h4>Habilitado</h4>');
+}
+
+
+function send_registrar(){
+
+
+registra();
+//loguin();
+}
+
+
+function mensaje(mensaje){
+M.toast({html: mensaje, classes: 'rounded'});
+}
+
+
+function loguin(){
+    var loguin = '<div class="card-panel  transparent   center"><div class="row">   <form class="col s12 m2"><div class="row"><div class="input-field col s12"></div></div><div class="row"><br><br><br><div class="input-field col s12"><h4 class="text center white-text text-darken-2"></h4></div></div><div class="row"><div class="input-field col s6 "><input  id="first_name" type="text" class="validate"><label for="first_name" class="white-text text-darken-2">Usuario</label></div><div class="input-field col s6"><input id="last_name" type="text" class="validate"><label for="last_name" class="white-text text-darken-2">Clave</label>  </div></div><div class="row"><div class="input-field col s12" ><a class="waves-effect waves-light btn" onclick="gif()">Ingresar</a></div><div class="input-field col s12" ><a class="waves-effect waves-light btn blue" onclick="Registrar()">Registrar</a></div></div></form></div></div></div>';
+ $('#principal').html(loguin);
+}
+
+
+
+  </script>
+  
+ 
